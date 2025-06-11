@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 37, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/app/%28main%29/dashboard/page.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst Dashboard = () => {\r\n  return (\r\n    <div className='px-5'>\r\n        <h1 className='text-6xl font-bold gradient-title mb-5 '>Dashboard</h1>\r\n\r\n        {/* dh page */}\r\n    </div>\r\n\r\n    \r\n  )\r\n}\r\n\r\nexport default Dashboard"],"names":[],"mappings":";;;;AAAA;;;AAEA,MAAM,YAAY;IAChB,qBACE,8OAAC;QAAI,WAAU;kBACX,cAAA,8OAAC;YAAG,WAAU;sBAA0C;;;;;;;;;;;AAOhE;uCAEe","debugId":null}}]
+}

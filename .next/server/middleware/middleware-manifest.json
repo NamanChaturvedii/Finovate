@@ -1,0 +1,54 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/_45c38843._.js",
+        "server/edge/chunks/node_modules_@bufbuild_protobuf_dist_esm_e8606cf1._.js",
+        "server/edge/chunks/node_modules_@arcjet_protocol_0c492877._.js",
+        "server/edge/chunks/node_modules_@connectrpc_connect_dist_esm_2e5be2d1._.js",
+        "server/edge/chunks/node_modules_@clerk_113eccaf._.js",
+        "server/edge/chunks/node_modules_@clerk_backend_dist_ef586648._.js",
+        "server/edge/chunks/node_modules_207f3a3f._.js",
+        "server/edge/chunks/[root-of-the-server]__5e96eddc._.js",
+        "server/edge/chunks/edge-wrapper_80b0f7ea.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*){(\\\\.json)}?",
+          "originalSource": "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/(api|trpc)(.*){(\\\\.json)}?",
+          "originalSource": "/(api|trpc)(.*)"
+        }
+      ],
+      "wasm": [
+        {
+          "name": "wasm_8069e__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core3_325b988e",
+          "filePath": "server/edge/chunks/8069e_@arcjet_analyze-wasm_wasm_arcjet_analyze_js_req_component_core3_325b988e.wasm"
+        },
+        {
+          "name": "wasm_8069e__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core2_325b988e",
+          "filePath": "server/edge/chunks/8069e_@arcjet_analyze-wasm_wasm_arcjet_analyze_js_req_component_core2_325b988e.wasm"
+        },
+        {
+          "name": "wasm_dd92d_modules__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core_325b988e",
+          "filePath": "server/edge/chunks/dd92d_modules_@arcjet_analyze-wasm_wasm_arcjet_analyze_js_req_component_core_325b988e.wasm"
+        }
+      ],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "pzj4r+E7xX66WzV6qhk/E/X6UHVUi25iPIKQiljqtD8=",
+        "__NEXT_PREVIEW_MODE_ID": "40bfca5a657f08ed08fee2e6095f9b93",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "0ac7b0dc738a5d760779f84748250278cd123d5c8272aa5c6fb2acce4f339314",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "d77bdef149a124ac798f2bb24a9fb1951c417ce0f30b1ae975d1a771c190d72e"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

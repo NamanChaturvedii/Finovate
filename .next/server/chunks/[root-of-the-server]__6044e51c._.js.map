@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 51, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/app/api/inngest/route.js"],"sourcesContent":["// import { serve } from \"inngest/next\";\r\n\r\n// import { inngest } from \"@/lib/inngest/client\";\r\n// import {\r\n//   checkBudgetAlerts,\r\n//   generateMonthlyReports,\r\n//   processRecurringTransaction,\r\n//   triggerRecurringTransactions,\r\n// } from \"@/lib/inngest/function\";\r\n\r\n// export const { GET, POST, PUT } = serve({\r\n//   client: inngest,\r\n//   functions: [\r\n//     processRecurringTransaction,\r\n//     triggerRecurringTransactions,\r\n//     generateMonthlyReports,\r\n//     checkBudgetAlerts,\r\n//   ],\r\n// });"],"names":[],"mappings":"AAAA,wCAAwC;AAExC,kDAAkD;AAClD,WAAW;AACX,uBAAuB;AACvB,4BAA4B;AAC5B,iCAAiC;AACjC,kCAAkC;AAClC,mCAAmC;AAEnC,4CAA4C;AAC5C,qBAAqB;AACrB,iBAAiB;AACjB,mCAAmC;AACnC,oCAAoC;AACpC,8BAA8B;AAC9B,yBAAyB;AACzB,OAAO;AACP,MAAM","debugId":null}}]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/app/%28main%29/dashboard/page.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst DashboardPage = () => {\r\n  return (\r\n    <div className='px-5'>\r\n        page\r\n    </div>\r\n\r\n    \r\n  )\r\n}\r\n\r\nexport default DashboardPage"],"names":[],"mappings":";;;;AAAA;;;AAEA,MAAM,gBAAgB;IACpB,qBACE,8OAAC;QAAI,WAAU;kBAAO;;;;;;AAM1B;uCAEe","debugId":null}},
+    {"offset": {"line": 31, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/app/%28main%29/dashboard/layout.js"],"sourcesContent":["import React, { Suspense } from 'react'\r\nimport DashboardPage from './page'\r\n\r\nconst DashboardLayout = () => {\r\n  return (\r\n    <div className='px-5'>\r\n        <h1 className='text-6xl font-bold gradient-title mb-5 '>Dashboard</h1>\r\n\r\n        {/* dh page */}\r\n        <Suspense>\r\n        <DashboardPage/>\r\n        </Suspense>\r\n    </div>\r\n\r\n    \r\n  )\r\n}\r\n\r\nexport default DashboardLayout"],"names":[],"mappings":";;;;AAAA;AACA;;;;AAEA,MAAM,kBAAkB;IACtB,qBACE,8OAAC;QAAI,WAAU;;0BACX,8OAAC;gBAAG,WAAU;0BAA0C;;;;;;0BAGxD,8OAAC,qMAAA,CAAA,WAAQ;0BACT,cAAA,8OAAC,qIAAA,CAAA,UAAa;;;;;;;;;;;;;;;;AAMtB;uCAEe","debugId":null}}]
+}

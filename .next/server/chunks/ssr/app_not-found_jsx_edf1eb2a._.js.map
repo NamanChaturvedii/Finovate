@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/app/not-found.jsx"],"sourcesContent":["import Link from \"next/link\";\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\nexport default function NotFound() {\r\n  return (\r\n    <div className=\"flex flex-col items-center justify-center min-h-[100vh] px-4 text-center\">\r\n      <h1 className=\"text-6xl font-bold gradient-title mb-4\">404</h1>\r\n      <h2 className=\"text-2xl font-semibold mb-4\">Page Not Found</h2>\r\n      <p className=\"text-gray-600 mb-8\">\r\n        Oops! The page you&apos;re looking for doesn&apos;t exist or has been\r\n        moved.\r\n      </p>\r\n      <Link href=\"/\">\r\n        <Button>Return Home</Button>\r\n      </Link>\r\n    </div>\r\n  );\r\n}"],"names":[],"mappings":";;;;AAAA;AACA;;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;;0BACb,8OAAC;gBAAG,WAAU;0BAAyC;;;;;;0BACvD,8OAAC;gBAAG,WAAU;0BAA8B;;;;;;0BAC5C,8OAAC;gBAAE,WAAU;0BAAqB;;;;;;0BAIlC,8OAAC,4JAAA,CAAA,UAAI;gBAAC,MAAK;0BACT,cAAA,8OAAC,2HAAA,CAAA,SAAM;8BAAC;;;;;;;;;;;;;;;;;AAIhB","debugId":null}}]
+}

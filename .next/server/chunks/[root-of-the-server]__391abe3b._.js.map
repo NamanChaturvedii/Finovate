@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 132, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/lib/inngest/client.js"],"sourcesContent":["import { Inngest } from \"inngest\";\r\n\r\nexport const inngest = new Inngest({\r\n  id: \"finance-platform-ai\", // Unique app ID\r\n  name: \"Finance Platform-ai\",\r\n  retryFunction: async (attempt) => ({\r\n    delay: Math.pow(2, attempt) * 1000, // Exponential backoff\r\n    maxAttempts: 2,\r\n  }),\r\n});"],"names":[],"mappings":";;;AAAA;;AAEO,MAAM,UAAU,IAAI,kIAAA,CAAA,UAAO,CAAC;IACjC,IAAI;IACJ,MAAM;IACN,eAAe,OAAO,UAAY,CAAC;YACjC,OAAO,KAAK,GAAG,CAAC,GAAG,WAAW;YAC9B,aAAa;QACf,CAAC;AACH","debugId":null}},
+    {"offset": {"line": 151, "column": 0}, "map": {"version":3,"sources":["file:///D:/wealth/app/api/inngest/route.js"],"sourcesContent":["import { serve } from \"inngest/next\";\r\n\r\nimport { inngest } from \"@/lib/inngest/client\";\r\nimport {\r\n  checkBudgetAlerts,\r\n  generateMonthlyReports,\r\n  processRecurringTransaction,\r\n  triggerRecurringTransactions,\r\n} from \"@/lib/inngest/function\";\r\n\r\nexport const { GET, POST, PUT } = serve({\r\n  client: inngest,\r\n  functions: [\r\n    processRecurringTransaction,\r\n    triggerRecurringTransactions,\r\n    generateMonthlyReports,\r\n    checkBudgetAlerts,\r\n  ],\r\n});"],"names":[],"mappings":";;;;;AAAA;AAEA;;;;;;;;;AAQO,MAAM,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE,GAAG,CAAA,GAAA,iIAAA,CAAA,QAAK,AAAD,EAAE;IACtC,QAAQ,0HAAA,CAAA,UAAO;IACf,WAAW;QACT;QACA;QACA;QACA;KACD;AACH","debugId":null}}]
+}
