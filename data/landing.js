@@ -54,7 +54,7 @@ export const featuresData = [
   {
     icon: <Globe className="h-8 w-8 text-blue-600" />,
     title: "Multi-Currency",
-    description: "Support for multiple currencies with real-time conversion",
+    description: "Support for multiple currencies ",
   },
   {
     icon: <Zap className="h-8 w-8 text-blue-600" />,
@@ -106,6 +106,6 @@ export const testimonialsData = [
     role: "Financial Advisor",
     image: "https://randomuser.me/api/portraits/women/74.jpg",
     quote:
-      "I recommend Welth to all my clients. The multi-currency support and detailed analytics make it perfect for international investors.",
+      "I recommend Welth to all my clients. The detailed analytics make it perfect for international investors.",
   },
 ];

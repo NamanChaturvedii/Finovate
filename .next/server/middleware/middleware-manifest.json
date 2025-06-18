@@ -27,12 +27,12 @@
       ],
       "wasm": [
         {
-          "name": "wasm_8069e__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core3_325b988e",
-          "filePath": "server/edge/chunks/8069e_@arcjet_analyze-wasm_wasm_arcjet_analyze_js_req_component_core3_325b988e.wasm"
-        },
-        {
           "name": "wasm_8069e__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core2_325b988e",
           "filePath": "server/edge/chunks/8069e_@arcjet_analyze-wasm_wasm_arcjet_analyze_js_req_component_core2_325b988e.wasm"
+        },
+        {
+          "name": "wasm_8069e__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core3_325b988e",
+          "filePath": "server/edge/chunks/8069e_@arcjet_analyze-wasm_wasm_arcjet_analyze_js_req_component_core3_325b988e.wasm"
         },
         {
           "name": "wasm_dd92d_modules__arcjet_analyze_wasm_wasm_arcjet_analyze_js_req_component_core_325b988e",
@@ -43,9 +43,9 @@
       "env": {
         "__NEXT_BUILD_ID": "development",
         "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "pzj4r+E7xX66WzV6qhk/E/X6UHVUi25iPIKQiljqtD8=",
-        "__NEXT_PREVIEW_MODE_ID": "40bfca5a657f08ed08fee2e6095f9b93",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "0ac7b0dc738a5d760779f84748250278cd123d5c8272aa5c6fb2acce4f339314",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "d77bdef149a124ac798f2bb24a9fb1951c417ce0f30b1ae975d1a771c190d72e"
+        "__NEXT_PREVIEW_MODE_ID": "6b7b867ebcaf7f87ab2bbad24d12574a",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "4b145faf53dee48c855184d0e2291179c9ed3c543271c3ecad6913421e91be45",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b210b10e00a3756f7c4b3879f8be3b8b66598ddee41343d6692be18c3a82e130"
       }
     }
   },
