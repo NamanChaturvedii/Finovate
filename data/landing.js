@@ -1,3 +1,8 @@
+import img1 from "../public/first.jpg"
+import img2 from "../public/second.jpg"
+import img3 from "../public/third.jpg"
+
+
 import {
   BarChart3,
   Receipt,
@@ -90,21 +95,21 @@ export const testimonialsData = [
   {
     name: "Sarah Johnson",
     role: "Small Business Owner",
-    image: "https://randomuser.me/api/portraits/women/75.jpg",
+    image: (img2),
     quote:
       "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
   },
   {
     name: "Michael Chen",
     role: "Freelancer",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
+    image: (img3),
     quote:
       "The receipt scanning feature saves me hours each month. Now I can focus on my work instead of manual data entry and expense tracking.",
   },
   {
     name: "Emily Rodriguez",
     role: "Financial Advisor",
-    image: "https://randomuser.me/api/portraits/women/74.jpg",
+    image: (img1),
     quote:
       "I recommend Welth to all my clients. The detailed analytics make it perfect for international investors.",
   },
