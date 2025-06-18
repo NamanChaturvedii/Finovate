@@ -312,7 +312,7 @@ const testimonialsData = [
     {
         name: "Emily Rodriguez",
         role: "Financial Advisor",
-        image: "https://randomuser.me/api/portraits/women/74.jpg",
+        image: "public/74.jpg",
         quote: "I recommend Welth to all my clients. The detailed analytics make it perfect for international investors."
     }
 ];
