@@ -15,11 +15,11 @@ import {
 // Stats Data
 export const statsData = [
   {
-    value: "50K+",
+    value: "5K+",
     label: "Active Users",
   },
   {
-    value: "$2B+",
+    value: "$2M+",
     label: "Transactions Tracked",
   },
   {
@@ -38,7 +38,7 @@ export const featuresData = [
     icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
     title: "Advanced Analytics",
     description:
-      "Get detailed insights into your spending patterns with AI-powered analytics",
+      "Get detailed insights into your spending patterns with analytics",
   },
   {
     icon: <Receipt className="h-8 w-8 text-blue-600" />,
@@ -49,18 +49,19 @@ export const featuresData = [
   {
     icon: <PieChart className="h-8 w-8 text-blue-600" />,
     title: "Budget Planning",
-    description: "Create and manage budgets with intelligent recommendations",
+    description: "Create and manage budgets effortlessly with a single click.",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-blue-600" />,
     title: "Multi-Account Support",
-    description: "Manage multiple accounts and credit cards in one place",
+    description: "Manage multiple accounts and debit/credit cards details in one place",
   },
-  {
-    icon: <Globe className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Currency",
-    description: "Support for multiple currencies ",
-  },
+{
+  icon: <Globe className="h-8 w-8 text-blue-600" />,
+  title: "Monthly Expense Reports",
+  description: "Get a detailed summary of your monthly spending delivered straight to your email.",
+},
+
   {
     icon: <Zap className="h-8 w-8 text-blue-600" />,
     title: "Automated Insights",
@@ -97,7 +98,7 @@ export const testimonialsData = [
     role: "Small Business Owner",
     image: (img2),
     quote:
-      "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
+      "WealthIn has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
   },
   {
     name: "Michael Chen",
@@ -111,6 +112,6 @@ export const testimonialsData = [
     role: "Financial Advisor",
     image: (img1),
     quote:
-      "I recommend Welth to all my clients. The detailed analytics make it perfect for international investors.",
+      "I recommend WealthIn to all my clients. The detailed analytics make it perfect for international investors.",
   },
 ];

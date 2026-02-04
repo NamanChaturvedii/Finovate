@@ -9,42 +9,6 @@ import {
     Text,
 } from "@react-email/components";
 
-// Dummy data for preview
-// const PREVIEW_DATA = {
-//     monthlyReport: {
-//         userName: "John Doe",
-//         type: "monthly-report",
-//         data: {
-//             month: "December",
-//             stats: {
-//                 totalIncome: 5000,
-//                 totalExpenses: 3500,
-//                 byCategory: {
-//                     housing: 1500,
-//                     groceries: 600,
-//                     transportation: 400,
-//                     entertainment: 300,
-//                     utilities: 700,
-//                 },
-//             },
-//             insights: [
-//                 "Your housing expenses are 43% of your total spending - consider reviewing your housing costs.",
-//                 "Great job keeping entertainment expenses under control this month!",
-//                 "Setting up automatic savings could help you save 20% more of your income.",
-//             ],
-//         },
-//     },
-//     budgetAlert: {
-//         userName: "John Doe",
-//         type: "budget-alert",
-//         data: {
-//             percentageUsed: 85,
-//             budgetAmount: 4000,
-//             totalExpenses: 3400,
-//         },
-//     },
-// };
-
 export default function EmailTemplate({
     userName = "",
     type = "monthly-report",
@@ -68,16 +32,25 @@ export default function EmailTemplate({
                         <Section style={styles.statsContainer}>
                             <div style={styles.stat}>
                                 <Text style={styles.text}>Total Income</Text>
-                                <Text style={styles.heading}>${data?.stats.totalIncome}</Text>
+                                <Text style={styles.heading}>
+                                    {Number(data?.stats.totalIncome).toFixed(2)}
+                                </Text>
+
                             </div>
                             <div style={styles.stat}>
                                 <Text style={styles.text}>Total Expenses</Text>
-                                <Text style={styles.heading}>${data?.stats.totalExpenses}</Text>
+                                <Text style={styles.heading}>
+                                    {Number(data?.stats.totalExpenses).toFixed(2)}
+                                </Text>
+
                             </div>
                             <div style={styles.stat}>
                                 <Text style={styles.text}>Net</Text>
                                 <Text style={styles.heading}>
-                                    ${data?.stats.totalIncome - data?.stats.totalExpenses}
+                                    {Number(
+                                        data?.stats.totalIncome - data?.stats.totalExpenses
+                                    ).toFixed(2)}
+
                                 </Text>
                             </div>
                         </Section>
@@ -90,7 +63,8 @@ export default function EmailTemplate({
                                     ([category, amount]) => (
                                         <div key={category} style={styles.row}>
                                             <Text style={styles.text}>{category}</Text>
-                                            <Text style={styles.text}>${amount}</Text>
+                                            <Text style={styles.text}>{Number(amount).toFixed(2)}</Text>
+
                                         </div>
                                     )
                                 )}
@@ -135,16 +109,19 @@ export default function EmailTemplate({
                         <Section style={styles.statsContainer}>
                             <div style={styles.stat}>
                                 <Text style={styles.text}>Budget Amount</Text>
-                                <Text style={styles.heading}>${data?.budgetAmount}</Text>
+                                <Text style={styles.heading}>{data?.budgetAmount}</Text>
                             </div>
                             <div style={styles.stat}>
                                 <Text style={styles.text}>Spent So Far</Text>
-                                <Text style={styles.heading}>${data?.totalExpenses}</Text>
+                                <Text style={styles.heading}>{data?.totalExpenses}</Text>
                             </div>
                             <div style={styles.stat}>
                                 <Text style={styles.text}>Remaining</Text>
                                 <Text style={styles.heading}>
-                                    ${data?.budgetAmount - data?.totalExpenses}
+                                    {Number(
+                                        data?.budgetAmount - data?.totalExpenses
+                                    ).toFixed(2)}
+
                                 </Text>
                             </div>
                         </Section>
