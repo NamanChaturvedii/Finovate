@@ -63,7 +63,7 @@ export default function EmailTemplate({
                                     ([category, amount]) => (
                                         <div key={category} style={styles.row}>
                                             <Text style={styles.text}>{category}</Text>
-                                            <Text style={styles.text}>{Number(amount).toFixed(2)}</Text>
+                                            <Text style={styles.text}> :{Number(amount).toFixed(2)}</Text>
 
                                         </div>
                                     )
