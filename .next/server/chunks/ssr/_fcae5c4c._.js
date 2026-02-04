@@ -255,11 +255,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 const statsData = [
     {
-        value: "50K+",
+        value: "5K+",
         label: "Active Users"
     },
     {
-        value: "$2B+",
+        value: "$2M+",
         label: "Transactions Tracked"
     },
     {
@@ -281,7 +281,7 @@ const featuresData = [
             columnNumber: 11
         }, this),
         title: "Advanced Analytics",
-        description: "Get detailed insights into your spending patterns with AI-powered analytics"
+        description: "Get detailed insights into your spending patterns with analytics"
     },
     {
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$receipt$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Receipt$3e$__["Receipt"], {
@@ -303,7 +303,7 @@ const featuresData = [
             columnNumber: 11
         }, this),
         title: "Budget Planning",
-        description: "Create and manage budgets with intelligent recommendations"
+        description: "Create and manage budgets effortlessly with a single click."
     },
     {
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__["CreditCard"], {
@@ -314,7 +314,7 @@ const featuresData = [
             columnNumber: 11
         }, this),
         title: "Multi-Account Support",
-        description: "Manage multiple accounts and credit cards in one place"
+        description: "Manage multiple accounts and debit/credit cards details in one place"
     },
     {
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Globe$3e$__["Globe"], {
@@ -322,17 +322,17 @@ const featuresData = [
         }, void 0, false, {
             fileName: "[project]/data/landing.js",
             lineNumber: 60,
-            columnNumber: 11
+            columnNumber: 9
         }, this),
-        title: "Multi-Currency",
-        description: "Support for multiple currencies "
+        title: "Monthly Expense Reports",
+        description: "Get a detailed summary of your monthly spending delivered straight to your email."
     },
     {
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"], {
             className: "h-8 w-8 text-blue-600"
         }, void 0, false, {
             fileName: "[project]/data/landing.js",
-            lineNumber: 65,
+            lineNumber: 66,
             columnNumber: 11
         }, this),
         title: "Automated Insights",
@@ -345,7 +345,7 @@ const howItWorksData = [
             className: "h-8 w-8 text-blue-600"
         }, void 0, false, {
             fileName: "[project]/data/landing.js",
-            lineNumber: 74,
+            lineNumber: 75,
             columnNumber: 11
         }, this),
         title: "1. Create Your Account",
@@ -356,7 +356,7 @@ const howItWorksData = [
             className: "h-8 w-8 text-blue-600"
         }, void 0, false, {
             fileName: "[project]/data/landing.js",
-            lineNumber: 80,
+            lineNumber: 81,
             columnNumber: 11
         }, this),
         title: "2. Track Your Spending",
@@ -367,7 +367,7 @@ const howItWorksData = [
             className: "h-8 w-8 text-blue-600"
         }, void 0, false, {
             fileName: "[project]/data/landing.js",
-            lineNumber: 86,
+            lineNumber: 87,
             columnNumber: 11
         }, this),
         title: "3. Get Insights",
@@ -379,7 +379,7 @@ const testimonialsData = [
         name: "Sarah Johnson",
         role: "Small Business Owner",
         image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$second$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$second$2e$jpg__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$rsc$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
-        quote: "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed."
+        quote: "WealthIn has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed."
     },
     {
         name: "Michael Chen",
@@ -391,7 +391,7 @@ const testimonialsData = [
         name: "Emily Rodriguez",
         role: "Financial Advisor",
         image: __TURBOPACK__imported__module__$5b$project$5d2f$public$2f$first$2e$jpg$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$public$2f$first$2e$jpg__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$rsc$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
-        quote: "I recommend Welth to all my clients. The detailed analytics make it perfect for international investors."
+        quote: "I recommend WealthIn to all my clients. The detailed analytics make it perfect for international investors."
     }
 ];
 }}),

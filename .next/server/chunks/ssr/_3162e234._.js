@@ -126,7 +126,7 @@ const Herosection = ()=>{
                             lineNumber: 35,
                             columnNumber: 38
                         }, this),
-                        "with Intelligence"
+                        "with AI support"
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/hero.jsx",
@@ -135,11 +135,11 @@ const Herosection = ()=>{
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-xl text-gray-600 mb-8 max-w-2xl mx-auto",
-                    children: "An AI-powered financial management platform that helps you track, analyze,and optimize your spending with real-time insights."
+                    children: "A smart expense management platform that lets you track, analyze, and optimize your spending — with intelligent receipt scanning that automatically captures your expense details for you."
                 }, void 0, false, {
                     fileName: "[project]/components/hero.jsx",
                     lineNumber: 37,
-                    columnNumber: 13
+                    columnNumber: 1
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex justify-center space-x-4",
@@ -152,12 +152,12 @@ const Herosection = ()=>{
                                 children: "Get Started"
                             }, void 0, false, {
                                 fileName: "[project]/components/hero.jsx",
-                                lineNumber: 43,
+                                lineNumber: 45,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/hero.jsx",
-                            lineNumber: 42,
+                            lineNumber: 44,
                             columnNumber: 17
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -168,13 +168,13 @@ const Herosection = ()=>{
                             children: "About Me"
                         }, void 0, false, {
                             fileName: "[project]/components/hero.jsx",
-                            lineNumber: 48,
+                            lineNumber: 50,
                             columnNumber: 17
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/hero.jsx",
-                    lineNumber: 41,
+                    lineNumber: 43,
                     columnNumber: 13
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -183,25 +183,25 @@ const Herosection = ()=>{
                         ref: imageRef,
                         className: "hero-image",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/banner11.png",
-                            width: 1200,
+                            src: "/main1.png",
+                            width: 1000,
                             height: 720,
-                            className: "rounded-lg shadow-2xl border mx-auto",
+                            className: "rounded-lg shadow-2xl border mx-auto w-[79%]",
                             priority: true,
                             alt: "Dashboard image"
                         }, void 0, false, {
                             fileName: "[project]/components/hero.jsx",
-                            lineNumber: 55,
+                            lineNumber: 57,
                             columnNumber: 25
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/hero.jsx",
-                        lineNumber: 54,
+                        lineNumber: 56,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/hero.jsx",
-                    lineNumber: 53,
+                    lineNumber: 55,
                     columnNumber: 17
                 }, this)
             ]

@@ -1902,7 +1902,6 @@ function TransactionTable({ transactions }) {
                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-right font-medium", transaction.type === "EXPENSE" ? "text-red-500" : "text-green-500"),
                                             children: [
                                                 transaction.type === "EXPENSE" ? "-" : "+",
-                                                "$",
                                                 transaction.amount.toFixed(2)
                                             ]
                                         }, void 0, true, {
@@ -2470,11 +2469,8 @@ function AccountChart({ transactions }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-lg font-bold text-green-500",
-                                        children: [
-                                            "$",
-                                            totals.income.toFixed(2)
-                                        ]
-                                    }, void 0, true, {
+                                        children: totals.income.toFixed(2)
+                                    }, void 0, false, {
                                         fileName: "[project]/app/(main)/account/_components/account-chart.jsx",
                                         lineNumber: 101,
                                         columnNumber: 25
@@ -2498,11 +2494,8 @@ function AccountChart({ transactions }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-lg font-bold text-red-500",
-                                        children: [
-                                            "$",
-                                            totals.expense.toFixed(2)
-                                        ]
-                                    }, void 0, true, {
+                                        children: totals.expense.toFixed(2)
+                                    }, void 0, false, {
                                         fileName: "[project]/app/(main)/account/_components/account-chart.jsx",
                                         lineNumber: 107,
                                         columnNumber: 25
@@ -2526,11 +2519,8 @@ function AccountChart({ transactions }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: `text-lg font-bold ${totals.income - totals.expense >= 0 ? "text-green-500" : "text-red-500"}`,
-                                        children: [
-                                            "$",
-                                            (totals.income - totals.expense).toFixed(2)
-                                        ]
-                                    }, void 0, true, {
+                                        children: (totals.income - totals.expense).toFixed(2)
+                                    }, void 0, false, {
                                         fileName: "[project]/app/(main)/account/_components/account-chart.jsx",
                                         lineNumber: 113,
                                         columnNumber: 25
@@ -2583,7 +2573,7 @@ function AccountChart({ transactions }) {
                                         fontSize: 12,
                                         tickLine: false,
                                         axisLine: false,
-                                        tickFormatter: (value)=>`$${value}`
+                                        tickFormatter: (value)=>`${value}`
                                     }, void 0, false, {
                                         fileName: "[project]/app/(main)/account/_components/account-chart.jsx",
                                         lineNumber: 136,
@@ -2591,7 +2581,7 @@ function AccountChart({ transactions }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Tooltip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tooltip"], {
                                         formatter: (value)=>[
-                                                `$${value}`,
+                                                `${value}`,
                                                 undefined
                                             ],
                                         contentStyle: {

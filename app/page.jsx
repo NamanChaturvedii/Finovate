@@ -7,10 +7,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-        <div className="mt-40">
-          <Herosection/>
+    <div className="mt-40">
+      <Herosection />
 
-                {/* Stats Section */}
+      {/* Stats Section */}
       <section className="py-20 bg-blue-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -25,7 +25,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
 
       {/* feature */}
 
@@ -35,7 +35,7 @@ export default function Home() {
             Everything you need to manage your finances
           </h2>
           {/* md is medium screens */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuresData.map((feature, index) => (
               <Card className="p-6" key={index}>
                 <CardContent className="space-y-4 pt-4">
@@ -52,7 +52,7 @@ export default function Home() {
 
       {/*  */}
 
-       <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-blue-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -102,9 +102,9 @@ export default function Home() {
         </div>
       </section>
 
-            {/* free trial */}
+      {/* free trial */}
 
-             <section className="py-20 bg-blue-500">
+      <section className="py-20 bg-blue-500">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Take Control of Your Finances?
@@ -124,7 +124,7 @@ export default function Home() {
         </div>
       </section>
 
-      </div>
-    
+    </div>
+
   );
 }

@@ -1,16 +1,16 @@
--- CreateEnum
+-- createenum
 CREATE TYPE "TransactionType" AS ENUM ('INCOME', 'EXPENSE');
 
--- CreateEnum
+-- createenum
 CREATE TYPE "AccountType" AS ENUM ('CURRENT', 'SAVINGS');
 
--- CreateEnum
+-- createenum
 CREATE TYPE "TransactionStatus" AS ENUM ('PENDING', 'COMPLETED', 'FAILED');
 
--- CreateEnum
+-- createenum
 CREATE TYPE "RecurringInterval" AS ENUM ('DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY');
 
--- CreateTable
+-- createtable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
     "clerkUserId" TEXT NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE "users" (
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
+-- createtable
 CREATE TABLE "accounts" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE "accounts" (
     CONSTRAINT "accounts_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
+-- createtable
 CREATE TABLE "transactions" (
     "id" TEXT NOT NULL,
     "type" "TransactionType" NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE "transactions" (
     CONSTRAINT "transactions_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
+-- createtable
 CREATE TABLE "budgets" (
     "id" TEXT NOT NULL,
     "amount" DECIMAL(65,30) NOT NULL,
@@ -71,35 +71,35 @@ CREATE TABLE "budgets" (
     CONSTRAINT "budgets_pkey" PRIMARY KEY ("id")
 );
 
--- CreateIndex
+-- createindex
 CREATE UNIQUE INDEX "users_clerkUserId_key" ON "users"("clerkUserId");
 
--- CreateIndex
+-- createindex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
--- CreateIndex
+-- createindex
 CREATE INDEX "accounts_userId_idx" ON "accounts"("userId");
 
--- CreateIndex
+-- createindex
 CREATE INDEX "transactions_userId_idx" ON "transactions"("userId");
 
--- CreateIndex
+-- createindex
 CREATE INDEX "transactions_accountId_idx" ON "transactions"("accountId");
 
--- CreateIndex
+-- createindex
 CREATE UNIQUE INDEX "budgets_userId_key" ON "budgets"("userId");
 
--- CreateIndex
+-- createindex
 CREATE INDEX "budgets_userId_idx" ON "budgets"("userId");
 
--- AddForeignKey
+-- addforikey
 ALTER TABLE "accounts" ADD CONSTRAINT "accounts_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- addforikey
 ALTER TABLE "transactions" ADD CONSTRAINT "transactions_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- addforikey
 ALTER TABLE "transactions" ADD CONSTRAINT "transactions_accountId_fkey" FOREIGN KEY ("accountId") REFERENCES "accounts"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
--- AddForeignKey
+-- addforikey
 ALTER TABLE "budgets" ADD CONSTRAINT "budgets_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;

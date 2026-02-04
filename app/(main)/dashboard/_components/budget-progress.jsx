@@ -5,13 +5,7 @@ import { Pencil, Check, X } from "lucide-react";
 import useFetch from "@/hooks/use-fetch";
 import { toast } from "sonner";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader, 
-    CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -103,9 +97,9 @@ export function BudgetProgress({ initialBudget, currentExpenses }) {
                             <>
                                 <CardDescription>
                                     {initialBudget
-                                        ? `$${currentExpenses.toFixed(
+                                        ? `${currentExpenses.toFixed(
                                             2
-                                        )} of $${initialBudget.amount.toFixed(2)} spent`
+                                        )} of ${initialBudget.amount.toFixed(2)} spent`
                                         : "No budget set"}
                                 </CardDescription>
                                 <Button

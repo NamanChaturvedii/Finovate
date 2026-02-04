@@ -307,6 +307,10 @@
   display: table-row;
 }
 
+.aspect-\[16\/10\] {
+  aspect-ratio: 16 / 10;
+}
+
 .aspect-square {
   aspect-ratio: 1;
 }
@@ -366,6 +370,10 @@
   height: calc(var(--spacing) * 6);
 }
 
+.h-7 {
+  height: calc(var(--spacing) * 7);
+}
+
 .h-8 {
   height: calc(var(--spacing) * 8);
 }
@@ -376,10 +384,6 @@
 
 .h-10 {
   height: calc(var(--spacing) * 10);
-}
-
-.h-12 {
-  height: calc(var(--spacing) * 12);
 }
 
 .h-16 {
@@ -462,12 +466,48 @@
   width: calc(var(--spacing) * 72);
 }
 
+.w-\[10px\] {
+  width: 10px;
+}
+
+.w-\[15\%\] {
+  width: 15%;
+}
+
 .w-\[50px\] {
   width: 50px;
 }
 
+.w-\[65\%\] {
+  width: 65%;
+}
+
+.w-\[75\%\] {
+  width: 75%;
+}
+
+.w-\[79\%\] {
+  width: 79%;
+}
+
+.w-\[95\%\] {
+  width: 95%;
+}
+
 .w-\[100px\] {
   width: 100px;
+}
+
+.w-\[110px\] {
+  width: 110px;
+}
+
+.w-\[115\%\] {
+  width: 115%;
+}
+
+.w-\[120px\] {
+  width: 120px;
 }
 
 .w-\[130px\] {
@@ -496,6 +536,10 @@
 
 .max-w-3xl {
   max-width: var(--container-3xl);
+}
+
+.max-w-4xl {
+  max-width: var(--container-4xl);
 }
 
 .min-w-\(--cell-size\) {
@@ -956,6 +1000,14 @@
 
 .object-contain {
   object-fit: contain;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.object-left {
+  object-position: left;
 }
 
 .p-0 {
@@ -2024,6 +2076,48 @@
 }
 
 @media (width >= 40rem) {
+  .sm\:h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+}
+
+@media (width >= 40rem) {
+  .sm\:h-\[36px\] {
+    height: 36px;
+  }
+}
+
+@media (width >= 40rem) {
+  .sm\:h-\[40px\] {
+    height: 40px;
+  }
+}
+
+@media (width >= 40rem) {
+  .sm\:h-\[46px\] {
+    height: 46px;
+  }
+}
+
+@media (width >= 40rem) {
+  .sm\:w-\[120px\] {
+    width: 120px;
+  }
+}
+
+@media (width >= 40rem) {
+  .sm\:w-\[140px\] {
+    width: 140px;
+  }
+}
+
+@media (width >= 40rem) {
+  .sm\:w-\[170px\] {
+    width: 170px;
+  }
+}
+
+@media (width >= 40rem) {
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -2431,6 +2525,7 @@
     --container-sm: 24rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
+    --container-4xl: 56rem;
     --text-xs: .75rem;
     --text-xs--line-height: calc(1 / .75);
     --text-sm: .875rem;

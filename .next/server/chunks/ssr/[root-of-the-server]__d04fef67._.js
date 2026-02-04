@@ -228,20 +228,22 @@ const Header = async ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: "fixed-top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b ",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-            className: "container mx-auto px-4 py-4 flex items-center justify-between",
+            className: "container mx-auto px-4 h-16 flex items-center justify-between",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                     href: "/",
+                    className: "flex items-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                         src: "/logo.png",
                         alt: "wealth logo",
-                        height: 60,
-                        width: 200,
-                        className: "h-12 w-auto object-contain"
+                        width: 120,
+                        height: 32,
+                        className: "object-contain sm:w-[170px] sm:h-[40px]",
+                        priority: true
                     }, void 0, false, {
                         fileName: "[project]/components/header.jsx",
                         lineNumber: 15,
-                        columnNumber: 17
+                        columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/header.jsx",
@@ -263,27 +265,27 @@ const Header = async ()=>{
                                                 size: 18
                                             }, void 0, false, {
                                                 fileName: "[project]/components/header.jsx",
-                                                lineNumber: 26,
-                                                columnNumber: 21
+                                                lineNumber: 28,
+                                                columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "hidden md:inline cursor-pointer",
                                                 children: "Dashboard"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/header.jsx",
-                                                lineNumber: 27,
-                                                columnNumber: 21
+                                                lineNumber: 29,
+                                                columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/header.jsx",
-                                        lineNumber: 25,
-                                        columnNumber: 17
+                                        lineNumber: 27,
+                                        columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/header.jsx",
-                                    lineNumber: 24,
-                                    columnNumber: 17
+                                    lineNumber: 26,
+                                    columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/transaction/create",
@@ -294,33 +296,33 @@ const Header = async ()=>{
                                                 size: 18
                                             }, void 0, false, {
                                                 fileName: "[project]/components/header.jsx",
-                                                lineNumber: 33,
-                                                columnNumber: 21
+                                                lineNumber: 35,
+                                                columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "hidden md:inline  cursor-pointer",
                                                 children: "Add Transaction"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/header.jsx",
-                                                lineNumber: 34,
-                                                columnNumber: 21
+                                                lineNumber: 36,
+                                                columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/header.jsx",
-                                        lineNumber: 32,
-                                        columnNumber: 17
+                                        lineNumber: 34,
+                                        columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/header.jsx",
-                                    lineNumber: 31,
-                                    columnNumber: 17
+                                    lineNumber: 33,
+                                    columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/header.jsx",
-                            lineNumber: 23,
-                            columnNumber: 13
+                            lineNumber: 25,
+                            columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["SignedOut"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$client$2d$boundary$2f$uiComponents$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["SignInButton"], {
@@ -331,18 +333,18 @@ const Header = async ()=>{
                                     children: "Login"
                                 }, void 0, false, {
                                     fileName: "[project]/components/header.jsx",
-                                    lineNumber: 42,
-                                    columnNumber: 17
+                                    lineNumber: 44,
+                                    columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/header.jsx",
-                                lineNumber: 41,
-                                columnNumber: 17
+                                lineNumber: 43,
+                                columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/header.jsx",
-                            lineNumber: 40,
-                            columnNumber: 9
+                            lineNumber: 42,
+                            columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["SignedIn"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$client$2d$boundary$2f$uiComponents$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["UserButton"], {
@@ -353,19 +355,19 @@ const Header = async ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/header.jsx",
-                                lineNumber: 46,
-                                columnNumber: 17
+                                lineNumber: 48,
+                                columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/header.jsx",
-                            lineNumber: 45,
-                            columnNumber: 13
+                            lineNumber: 47,
+                            columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/header.jsx",
-                    lineNumber: 22,
-                    columnNumber: 13
+                    lineNumber: 24,
+                    columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
