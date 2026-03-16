@@ -224,7 +224,8 @@ export async function getUserTransactions(query = {}) {
   }
 }
 
-// Scan Receipt (UNCHANGED)
+// Scan Receipt
+// Returns ONLY plain JSON-serializable values for client autofill
 export async function scanReceipt({ base64String, mimeType }) {
   try {
     if (!base64String || typeof base64String !== "string") {
@@ -241,6 +242,26 @@ export async function scanReceipt({ base64String, mimeType }) {
 
     const model = genAI.getGenerativeModel({ model: modelName });
 
+    const prompt = `
+Analyze this receipt image and extract the following information in JSON format:
+- Total amount (just the number)
+- Date (in ISO format)
+- Description or items purchased (brief summary)
+- Merchant/store name
+- Suggested category (one of: housing,transportation,groceries,utilities,entertainment,food,shopping,healthcare,education,personal,travel,insurance,gifts,bills,other-expense)
+
+Only respond with valid JSON in this exact format:
+{
+  "amount": number,
+  "date": "ISO date string",
+  "description": "string",
+  "merchantName": "string",
+  "category": "string"
+}
+
+If it's not a receipt, return {}.
+`;
+
     const result = await model.generateContent([
       {
         inlineData: {
@@ -248,19 +269,103 @@ export async function scanReceipt({ base64String, mimeType }) {
           mimeType,
         },
       },
-      `Analyze receipt and return JSON`,
+      prompt,
     ]);
 
     const response = await result.response;
     const text = response.text();
-
     const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
-    const parsed = JSON.parse(cleanedText);
+    const extractFirstJsonObject = (input) => {
+      if (!input) return "";
+      const start = input.indexOf("{");
+      if (start === -1) return "";
+      let depth = 0;
+      for (let i = start; i < input.length; i++) {
+        const ch = input[i];
+        if (ch === "{") depth++;
+        if (ch === "}") {
+          depth--;
+          if (depth === 0) return input.slice(start, i + 1);
+        }
+      }
+      return "";
+    };
 
-    return parsed || {};
+    const jsonCandidate = extractFirstJsonObject(cleanedText) || cleanedText;
+    const parsed = JSON.parse(jsonCandidate);
+
+    const data =
+      parsed &&
+      typeof parsed === "object" &&
+      parsed.receipt &&
+      typeof parsed.receipt === "object" &&
+      parsed.receipt !== null
+        ? { ...parsed, ...parsed.receipt }
+        : parsed;
+
+    if (!data || typeof data !== "object") return {};
+    if (Object.keys(data).length === 0) return {};
+
+    const rawAmount = data.amount ?? data.total ?? data.totalAmount ?? data.total_amount;
+    const parsedAmount =
+      typeof rawAmount === "number"
+        ? rawAmount
+        : typeof rawAmount === "string"
+          ? parseFloat(rawAmount.replace(/,/g, "").replace(/[^\d.-]/g, ""))
+          : undefined;
+
+    const parsedDate =
+      typeof data.date === "string" && data.date
+        ? (() => {
+            const d = new Date(data.date);
+            return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
+          })()
+        : undefined;
+
+    const rawDescription =
+      typeof data.description === "string"
+        ? data.description
+        : Array.isArray(data.items)
+          ? data.items.slice(0, 5).join(", ")
+          : typeof data.summary === "string"
+            ? data.summary
+            : undefined;
+
+    const merchantName =
+      typeof data.merchantName === "string" && data.merchantName ? data.merchantName : undefined;
+
+    // Fallbacks: if Gemini misses amount/description, try to pull from raw text
+    let fallbackAmount = undefined;
+    if (!(typeof parsedAmount === "number" && !Number.isNaN(parsedAmount))) {
+      const m =
+        cleanedText.match(/(?:grand\s*total|amount\s*due|total)\D{0,20}([\d][\d,]*\.\d{2})/i) ||
+        cleanedText.match(/([\d][\d,]*\.\d{2})/);
+      if (m?.[1]) {
+        const n = parseFloat(String(m[1]).replace(/,/g, ""));
+        if (!Number.isNaN(n)) fallbackAmount = n;
+      }
+    }
+
+    const finalAmount =
+      typeof parsedAmount === "number" && !Number.isNaN(parsedAmount) ? parsedAmount : fallbackAmount;
+
+    const finalDescription =
+      typeof rawDescription === "string" && rawDescription.trim()
+        ? rawDescription
+        : merchantName
+          ? `Purchase at ${merchantName}`
+          : undefined;
+
+    return {
+      ...(typeof finalAmount === "number" ? { amount: finalAmount } : {}),
+      ...(parsedDate ? { date: parsedDate } : {}),
+      ...(finalDescription ? { description: finalDescription } : {}),
+      ...(merchantName ? { merchantName } : {}),
+      ...(typeof data.category === "string" && data.category ? { category: data.category } : {}),
+    };
   } catch (error) {
-    throw new Error(error.message || "Failed to scan receipt");
+    throw new Error(error?.message || "Failed to scan receipt");
   }
 }
 

@@ -73,14 +73,16 @@ export function ReceiptScanner({ onScanComplete }) {
                 return;
             }
 
-            // Prove we actually got useful fields
+            // Require at least amount or description for autofill to make sense
             const hasUseful =
                 scannedData.amount !== undefined ||
-                scannedData.description ||
-                scannedData.date;
+                (typeof scannedData.description === "string" &&
+                    scannedData.description.trim().length > 0);
 
             if (!hasUseful) {
-                toast.error("Receipt scanned, but no fields were extracted.");
+                toast.error(
+                    "Receipt scanned, but amount/description could not be read. You can still fill them manually."
+                );
                 return;
             }
 
