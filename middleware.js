@@ -26,26 +26,34 @@ const isProtectRoutes= createRouteMatcher([
 // })
 
 
-const clerk =  clerkMiddleware(async(auth,req)=>{
-    const {userId}= await auth();
+// const clerk =  clerkMiddleware(async(auth,req)=>{
+//     const {userId}= await auth();
 
-    if(!userId && isProtectRoutes(req)){
-        const {redirectToSignIn}= await auth();
+//     if(!userId && isProtectRoutes(req)){
+//         const {redirectToSignIn}= await auth();
 
-        return redirectToSignIn();
+//         return redirectToSignIn();
 
-    }
+//     }
 
 
-});
+// });
 
-export default clerk
+// export default clerk
 // export default createMiddleware(aj,clerk);
 
-export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
-  ],
-}
+// export const config = {
+//   matcher: [
+//     // Skip Next.js internals and all static files, unless found in search params
+//     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+//     '/(api|trpc)(.*)',
+//   ],
+// }
+
+export default clerkMiddleware(async (auth, req) => {
+  const { userId, redirectToSignIn } = await auth();
+
+  if (!userId && isProtectRoutes(req)) {
+    return redirectToSignIn();
+  }
+});
