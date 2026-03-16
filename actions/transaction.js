@@ -228,14 +228,23 @@ export async function getUserTransactions(query = {}) {
 }
 
 // Scan Receipt
-export async function scanReceipt(file) {
+// Accepts a plain object with base64-encoded image data and mimeType
+export async function scanReceipt({ base64String, mimeType }) {
     try {
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        if (!base64String || typeof base64String !== "string") {
+            throw new Error("Invalid receipt image data");
+        }
+        if (!mimeType || typeof mimeType !== "string") {
+            throw new Error("Invalid receipt mime type");
+        }
 
-        // Convert File to ArrayBuffer
-        const arrayBuffer = await file.arrayBuffer();
-        // Convert ArrayBuffer to Base64
-        const base64String = Buffer.from(arrayBuffer).toString("base64");
+        const modelName =
+            process.env.GEMINI_MODEL?.trim() ||
+            process.env.GOOGLE_GEMINI_MODEL?.trim() ||
+            // Current recommended alias for the Flash family (hot-swapped by Google)
+            "gemini-flash-latest";
+
+        const model = genAI.getGenerativeModel({ model: modelName });
 
         const prompt = `
     Analyze this receipt image and extract the following information in JSON format:
@@ -261,7 +270,7 @@ export async function scanReceipt(file) {
             {
                 inlineData: {
                     data: base64String,
-                    mimeType: file.type,
+                    mimeType,
                 },
             },
             prompt,
@@ -271,14 +280,85 @@ export async function scanReceipt(file) {
         const text = response.text();
         const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
+        const extractFirstJsonObject = (input) => {
+            if (!input) return "";
+            const start = input.indexOf("{");
+            if (start === -1) return "";
+            // naive brace matching (good enough for Gemini JSON responses)
+            let depth = 0;
+            for (let i = start; i < input.length; i++) {
+                const ch = input[i];
+                if (ch === "{") depth++;
+                if (ch === "}") {
+                    depth--;
+                    if (depth === 0) return input.slice(start, i + 1);
+                }
+            }
+            return "";
+        };
+
         try {
-            const data = JSON.parse(cleanedText);
+            const jsonCandidate = extractFirstJsonObject(cleanedText) || cleanedText;
+            const parsed = JSON.parse(jsonCandidate);
+
+            const data =
+                parsed &&
+                typeof parsed === "object" &&
+                parsed.receipt &&
+                typeof parsed.receipt === "object" &&
+                parsed.receipt !== null
+                    ? { ...parsed, ...parsed.receipt }
+                    : parsed;
+
+            if (!data || typeof data !== "object") return {};
+            if (Object.keys(data).length === 0) return {};
+
+            const rawAmount =
+                data.amount ?? data.total ?? data.totalAmount ?? data.total_amount;
+
+            const parsedAmount =
+                typeof rawAmount === "number"
+                    ? rawAmount
+                    : typeof rawAmount === "string"
+                        ? parseFloat(
+                            rawAmount
+                                .replace(/,/g, "")
+                                .replace(/[^\d.-]/g, "")
+                        )
+                        : undefined;
+
+            const rawDescription =
+                typeof data.description === "string"
+                    ? data.description
+                    : Array.isArray(data.items)
+                        ? data.items.slice(0, 5).join(", ")
+                        : typeof data.summary === "string"
+                            ? data.summary
+                            : undefined;
+
+            const parsedDate =
+                typeof data.date === "string" && data.date
+                    ? (() => {
+                        const d = new Date(data.date);
+                        return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
+                    })()
+                    : undefined;
+
+            // Important: return only plain JSON-serializable values (no Date instances)
             return {
-                amount: parseFloat(data.amount),
-                date: new Date(data.date),
-                description: data.description,
-                category: data.category,
-                merchantName: data.merchantName,
+                ...(typeof parsedAmount === "number" && !Number.isNaN(parsedAmount)
+                    ? { amount: parsedAmount }
+                    : {}),
+                ...(parsedDate ? { date: parsedDate } : {}),
+                ...(typeof rawDescription === "string" && rawDescription
+                    ? { description: rawDescription }
+                    : {}),
+                ...(typeof data.category === "string" && data.category
+                    ? { category: data.category }
+                    : {}),
+                ...(typeof data.merchantName === "string" && data.merchantName
+                    ? { merchantName: data.merchantName }
+                    : {}),
             };
         } catch (parseError) {
             console.error("Error parsing JSON response:", parseError);
@@ -286,7 +366,7 @@ export async function scanReceipt(file) {
         }
     } catch (error) {
         console.error("Error scanning receipt:", error);
-        throw new Error("Failed to scan receipt");
+        throw new Error(error?.message || "Failed to scan receipt");
     }
 }
 

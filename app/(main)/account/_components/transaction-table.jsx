@@ -75,7 +75,7 @@ export function TransactionTable({ transactions }) {
                     comparison = new Date(a.date) - new Date(b.date);
                     break;
                 case "amount":
-                    comparison = a.amount - b.amount;
+                    comparison = (Number(a.amount) || 0) - (Number(b.amount) || 0);
                     break;
                 case "category":
                     comparison = a.category.localeCompare(b.category);
@@ -146,6 +146,8 @@ export function TransactionTable({ transactions }) {
     useEffect(() => {
         if (deleted && !deleteLoading) {
             toast.error("Transactions deleted successfully");
+            setSelectedIds([]); 
+            router.refresh(); 
         }
     }, [deleted, deleteLoading]);
 
@@ -343,7 +345,7 @@ export function TransactionTable({ transactions }) {
                                         )}
                                     >
                                         {transaction.type === "EXPENSE" ? "-" : "+"}
-                                        {transaction.amount.toFixed(2)}
+                                        {(Number(transaction.amount) || 0).toFixed(2)}
                                     </TableCell>
                                     <TableCell>
                                         {transaction.isRecurring ? (
@@ -384,7 +386,7 @@ export function TransactionTable({ transactions }) {
                                     </TableCell>
                                     <TableCell>
                                         <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
+                                            <DropdownMenuTrigger>
                                                 <Button variant="ghost" className="h-8 w-8 p-0">
                                                     <MoreHorizontal className="h-4 w-4" />
                                                 </Button>

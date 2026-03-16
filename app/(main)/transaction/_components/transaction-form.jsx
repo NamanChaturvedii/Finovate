@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarIcon, Loader2 } from "lucide-react";
 import { format } from "date-fns";
@@ -33,6 +33,7 @@ export function AddTransactionForm({
 
     const {
         register,
+        control,
         handleSubmit,
         formState: { errors },
         watch,
@@ -60,6 +61,7 @@ export function AddTransactionForm({
                     amount: "",
                     description: "",
                     accountId: accounts.find((ac) => ac.isDefault)?.id,
+                    category: "",
                     date: new Date(),
                     isRecurring: false,
                 },
@@ -85,17 +87,30 @@ export function AddTransactionForm({
     };
 
     const handleScanComplete = (scannedData) => {
-        if (scannedData) {
-            setValue("amount", scannedData.amount.toString());
-            setValue("date", new Date(scannedData.date));
-            if (scannedData.description) {
-                setValue("description", scannedData.description);
-            }
-            if (scannedData.category) {
-                setValue("category", scannedData.category);
-            }
-            toast.success("Receipt scanned successfully");
+        if (!scannedData) return;
+
+        const nextValues = {};
+
+        if (scannedData.amount !== undefined && scannedData.amount !== null) {
+            nextValues.amount = String(scannedData.amount);
         }
+
+        if (typeof scannedData.description === "string" && scannedData.description) {
+            nextValues.description = scannedData.description;
+        }
+
+        if (scannedData.category) {
+            const scannedCategory = String(scannedData.category).toLowerCase().trim();
+            const match = filteredCategories.find((c) => {
+                const name = String(c.name || "").toLowerCase().trim();
+                return name === scannedCategory;
+            });
+            if (match) nextValues.category = match.id;
+        }
+
+        Object.entries(nextValues).forEach(([key, value]) => {
+            setValue(key, value, { shouldDirty: true, shouldValidate: true });
+        });
     };
 
     useEffect(() => {
@@ -110,9 +125,24 @@ export function AddTransactionForm({
         }
     }, [transactionResult, transactionLoading, editMode]);
 
+    useEffect(() => {
+        // Register non-input fields so they are included in submit data reliably
+        register("type");
+        register("accountId");
+        register("category");
+        register("date");
+        register("isRecurring");
+        register("recurringInterval");
+    }, [register]);
+
     const type = watch("type");
     const isRecurring = watch("isRecurring");
     const date = watch("date");
+    const amountValue = watch("amount");
+    const descriptionValue = watch("description");
+    const categoryValue = watch("category");
+    const accountIdValue = watch("accountId");
+    const recurringIntervalValue = watch("recurringInterval");
 
     const filteredCategories = categories.filter(
         (category) => category.type === type
@@ -127,8 +157,10 @@ export function AddTransactionForm({
             <div className="space-y-2">
                 <label className="text-sm font-medium">Type</label>
                 <Select
-                    onValueChange={(value) => setValue("type", value)}
-                    defaultValue={type}
+                    value={type}
+                    onValueChange={(value) =>
+                        setValue("type", value, { shouldDirty: true, shouldValidate: true })
+                    }
                 >
                     <SelectTrigger>
                         <SelectValue placeholder="Select type" />
@@ -147,11 +179,18 @@ export function AddTransactionForm({
             <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-2">
                     <label className="text-sm font-medium">Amount</label>
-                    <Input
-                        type="number"
-                        step="0.01"
-                        placeholder="0.00"
-                        {...register("amount")}
+                    <Controller
+                        name="amount"
+                        control={control}
+                        render={({ field }) => (
+                            <Input
+                                type="number"
+                                step="0.01"
+                                placeholder="0.00"
+                                {...field}
+                                value={field.value ?? ""}
+                            />
+                        )}
                     />
                     {errors.amount && (
                         <p className="text-sm text-red-500">{errors.amount.message}</p>
@@ -161,8 +200,10 @@ export function AddTransactionForm({
                 <div className="space-y-2">
                     <label className="text-sm font-medium">Account</label>
                     <Select
-                        onValueChange={(value) => setValue("accountId", value)}
-                        defaultValue={getValues("accountId")}
+                        value={accountIdValue}
+                        onValueChange={(value) =>
+                            setValue("accountId", value, { shouldDirty: true, shouldValidate: true })
+                        }
                     >
                         <SelectTrigger>
                             <SelectValue placeholder="Select account" />
@@ -193,8 +234,10 @@ export function AddTransactionForm({
             <div className="space-y-2">
                 <label className="text-sm font-medium">Category</label>
                 <Select
-                    onValueChange={(value) => setValue("category", value)}
-                    defaultValue={getValues("category")}
+                    value={categoryValue}
+                    onValueChange={(value) =>
+                        setValue("category", value, { shouldDirty: true, shouldValidate: true })
+                    }
                 >
                     <SelectTrigger>
                         <SelectValue placeholder="Select category" />
@@ -248,7 +291,17 @@ export function AddTransactionForm({
             {/* Description */}
             <div className="space-y-2">
                 <label className="text-sm font-medium">Description</label>
-                <Input placeholder="Enter description" {...register("description")} />
+                <Controller
+                    name="description"
+                    control={control}
+                    render={({ field }) => (
+                        <Input
+                            placeholder="Enter description"
+                            {...field}
+                            value={field.value ?? ""}
+                        />
+                    )}
+                />
                 {errors.description && (
                     <p className="text-sm text-red-500">{errors.description.message}</p>
                 )}
@@ -273,8 +326,13 @@ export function AddTransactionForm({
                 <div className="space-y-2">
                     <label className="text-sm font-medium">Recurring Interval</label>
                     <Select
-                        onValueChange={(value) => setValue("recurringInterval", value)}
-                        defaultValue={getValues("recurringInterval")}
+                        value={recurringIntervalValue}
+                        onValueChange={(value) =>
+                            setValue("recurringInterval", value, {
+                                shouldDirty: true,
+                                shouldValidate: true,
+                            })
+                        }
                     >
                         <SelectTrigger>
                             <SelectValue placeholder="Select interval" />

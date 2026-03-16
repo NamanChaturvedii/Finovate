@@ -35,10 +35,11 @@ export function AccountChart({ transactions }) {
             if (!acc[date]) {
                 acc[date] = { date, income: 0, expense: 0 };
             }
+            const amount = Number(transaction.amount) || 0;
             if (transaction.type === "INCOME") {
-                acc[date].income += transaction.amount;
+                acc[date].income += amount;
             } else {
-                acc[date].expense += transaction.amount;
+                acc[date].expense += amount;
             }
             return acc;
         }, {});
