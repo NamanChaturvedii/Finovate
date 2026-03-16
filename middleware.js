@@ -9,21 +9,21 @@ const isProtectRoutes= createRouteMatcher([
 ])
 
 
-const aj = arcjet({
-  key:process.env.ARCJET_KEY,
-  rules:[
-    shield({
-      mode:"LIVE"
-    }),
-    detectBot({
-      mode:"LIVE",
-      allow:[
-        "CATEGORY:SEARCH_ENGINE",
-        "GO_HTTP",
-      ]
-    })
-  ]
-})
+// const aj = arcjet({
+//   key:process.env.ARCJET_KEY,
+//   rules:[
+//     shield({
+//       mode:"LIVE"
+//     }),
+//     detectBot({
+//       mode:"LIVE",
+//       allow:[
+//         "CATEGORY:SEARCH_ENGINE",
+//         "GO_HTTP",
+//       ]
+//     })
+//   ]
+// })
 
 
 const clerk =  clerkMiddleware(async(auth,req)=>{
@@ -39,7 +39,8 @@ const clerk =  clerkMiddleware(async(auth,req)=>{
 
 });
 
-export default createMiddleware(aj,clerk);
+export default clerk
+// export default createMiddleware(aj,clerk);
 
 export const config = {
   matcher: [
