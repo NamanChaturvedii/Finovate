@@ -17,23 +17,24 @@ export function ReceiptScanner({ onScanComplete }) {
 
     const {
         loading: scanReceiptLoading,
-        fn: scanReceiptFn,
+        fn: scanReceiptFn, // means original name is fn but remaned to this
         data: scannedData,
         error: scanReceiptError,
         setData: setScannedData,
     } = useFetch(scanReceipt);
 
-    const fileToBase64 = (file) => {
+    const fileToBase64 = (file) => { // as our api wants basestring and mintype but browser givs file object then we need to convert that in base 64
+
         return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => {
+            const reader = new FileReader(); // reads file like image and ll fro user system.
+            reader.onload = () => { // runs after redding the file
                 const result = reader.result;
                 // result is like "data:<mime>;base64,XXXX"
                 const base64 = typeof result === "string" ? result.split(",")[1] : "";
-                resolve(base64);
+                resolve(base64);  // sends the result back to first line
             };
             reader.onerror = (error) => reject(error);
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(file); /// starts the proicess of file to base 64
         });
     };
 

@@ -3,11 +3,11 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Anthropic from "@anthropic-ai/sdk";
 import aj from "@/lib/arcjet";
 import { request } from "@arcjet/next";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 const serializeAmount = (obj) => ({
   ...obj,
@@ -235,15 +235,7 @@ export async function scanReceipt({ base64String, mimeType }) {
       throw new Error("Invalid receipt mime type");
     }
 
-    const modelName =
-      process.env.GEMINI_MODEL?.trim() ||
-      process.env.GOOGLE_GEMINI_MODEL?.trim() ||
-      "gemini-flash-latest";
-
-    const model = genAI.getGenerativeModel({ model: modelName });
-
-    const prompt = `
-Analyze this receipt image and extract the following information in JSON format:
+    const prompt = `Analyze this receipt image and extract the following information in JSON format:
 - Total amount (just the number)
 - Date (in ISO format)
 - Description or items purchased (brief summary)
@@ -259,21 +251,30 @@ Only respond with valid JSON in this exact format:
   "category": "string"
 }
 
-If it's not a receipt, return {}.
-`;
+If it's not a receipt, return {}.`;
 
-    const result = await model.generateContent([
-      {
-        inlineData: {
-          data: base64String,
-          mimeType,
+    const result = await anthropic.messages.create({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 1024,
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "image",
+              source: {
+                type: "base64",
+                media_type: mimeType,
+                data: base64String,
+              },
+            },
+            { type: "text", text: prompt },
+          ],
         },
-      },
-      prompt,
-    ]);
+      ],
+    });
 
-    const response = await result.response;
-    const text = response.text();
+    const text = result.content[0].text;
     const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
     const extractFirstJsonObject = (input) => {

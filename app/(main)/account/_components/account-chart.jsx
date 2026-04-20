@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTheme } from "next-themes";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,6 +17,8 @@ const DATE_RANGES = {
 
 export function AccountChart({ transactions }) {
     const [dateRange, setDateRange] = useState("1M");
+    const { resolvedTheme } = useTheme();
+    const isDark = resolvedTheme === "dark";
 
     const filteredData = useMemo(() => {
         const range = DATE_RANGES[dateRange];
@@ -112,25 +115,29 @@ export function AccountChart({ transactions }) {
                             data={filteredData}
                             margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
                         >
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? "#374151" : "#e5e7eb"} />
                             <XAxis
                                 dataKey="date"
                                 fontSize={12}
                                 tickLine={false}
                                 axisLine={false}
+                                tick={{ fill: isDark ? "#9ca3af" : "#6b7280" }}
                             />
                             <YAxis
                                 fontSize={12}
                                 tickLine={false}
                                 axisLine={false}
                                 tickFormatter={(value) => `${value}`}
+                                tick={{ fill: isDark ? "#9ca3af" : "#6b7280" }}
                             />
                             <Tooltip
                                 formatter={(value) => [`${value}`, undefined]}
+                                cursor={{ fill: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)" }}
                                 contentStyle={{
-                                    backgroundColor: "hsl(var(--popover))",
-                                    border: "1px solid hsl(var(--border))",
-                                    borderRadius: "var(--radius)",
+                                    backgroundColor: isDark ? "#1f2937" : "#ffffff",
+                                    border: `1px solid ${isDark ? "#374151" : "#e5e7eb"}`,
+                                    borderRadius: "8px",
+                                    color: isDark ? "#f9fafb" : "#111827",
                                 }}
                             />
                             <Legend />
